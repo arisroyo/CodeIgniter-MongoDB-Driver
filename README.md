@@ -1,6 +1,4 @@
-=======
 #CodeIgniter MongoDB Driver Library for Codeigniter
-=======
 
 This library inspired by CIMongo - MongoDB Library to help perform simple MongoDB based queries using MongoDB Driver in CodeIgniter.
 
