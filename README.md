@@ -1,4 +1,5 @@
 #CodeIgniter MongoDB Driver Library for Codeigniter
+========
 
 This library inspired by CIMongo - MongoDB Library to help perform simple MongoDB based queries using MongoDB Driver in CodeIgniter.
 
@@ -32,7 +33,7 @@ Insert examples
 <?php
 $this->load->library('Mongodriver');
 $tweets = array('tweetid'=>1,'text'=>"This sample Tweet",'date'=>"July 15, 2017")
-$this->mongodriver->insert("tweets",$jsonTweet);
+$this->mongodriver->insert("tweets",$tweets);
 ?>
 ```
 
