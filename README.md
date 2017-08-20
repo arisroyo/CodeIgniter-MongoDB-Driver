@@ -6,12 +6,14 @@ This library inspired by CIMongo - MongoDB Library to help perform simple MongoD
 This library work with single document process
 * Query
 * Insert
+* Update
 * Delete
 * isExist
 
 ##Methods
 * `query` Return MongoDB Array Of Object, accept collection name, filter and option.
 * `insert` Return nothing, accept collection name and document to insert.
+* `update` Return nothing, accept collection name and document to update and query.
 * `delete` Return nothing, accept collection name and document query for deletion.
 * `isExist` Return true/false, accept collection name and query (filter and option)
 
@@ -34,6 +36,16 @@ Insert examples
 $this->load->library('Mongodriver');
 $tweets = array('tweetid'=>1,'text'=>"This sample Tweet",'date'=>"July 15, 2017")
 $this->mongodriver->insert("tweets",$tweets);
+?>
+```
+
+```
+Update examples
+<?php
+$this->load->library('Mongodriver');
+$query = array('tweetid'=>1,'date'=>"July 15, 2017");
+$tweets = array('tweetid'=>1,'text'=>"Latest Tweet Update MongoDB Driver Method",'date'=>"Aug 20, 2017")
+$this->mongodriver->update("tweets",$tweets);
 ?>
 ```
 
