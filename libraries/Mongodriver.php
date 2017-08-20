@@ -113,6 +113,48 @@ class Mongodriver {
 		}
 		
 	}
+
+	
+	public function update($collection ="", $document = array(), $query = array()) {
+		
+		if (empty($collection))
+		{
+			show_error("No Mongo collection selected to insert into", 500);
+		}
+		
+		if (!is_array($document) || count($document) == 0)
+		{
+			show_error("Nothing to update into Mongo collection or document is not an array", 500);
+		}
+		
+		if (!is_array($query) || count($query) == 0)
+		{
+			show_error("Nothing to update into Mongo collection or query is empty", 500);
+		}
+		
+		try
+		{
+			
+			$bulk = new MongoDB\Driver\BulkWrite;
+			
+			$bulk->update(
+				$query,
+				['$set' => $document],
+				['multi' => false, 'upsert' => false]
+			);
+			
+			$this->manager->executeBulkWrite("{$this->database}.{$collection}", $bulk);
+			
+			
+		} catch (MongoDB\Driver\Exception\Exception $mx) {
+			if(isset($this->debug) == TRUE && $this->debug == TRUE) {
+				show_error("Update of document into MongoDB failed: {$mx->getMessage()}", 500);
+			} else {
+				show_error("Update of document into MongoDB failed", 500);
+			}
+		}
+		
+	}
 	
 
 	public function delete($collection ="", $document = array()) {
