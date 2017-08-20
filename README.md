@@ -45,7 +45,7 @@ Update examples
 $this->load->library('Mongodriver');
 $query = array('tweetid'=>1,'date'=>"July 15, 2017");
 $tweets = array('tweetid'=>1,'text'=>"Latest Tweet Update MongoDB Driver Method",'date'=>"Aug 20, 2017")
-$this->mongodriver->update("tweets",$tweets);
+$this->mongodriver->update("tweets",$tweets,$query);
 ?>
 ```
 
